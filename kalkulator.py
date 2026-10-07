@@ -8,3 +8,22 @@ def podziel(a, b):
     if b == 0:
         raise ValueError("Nie można dzielić przez zero.")
     return a / b
+
+def menu():
+    print("=== Kalkulator ===")
+    a = float(input("Podaj pierwszą liczbę: "))
+    b = float(input("Podaj drugą liczbę: "))
+    dzialanie = input("Działanie (+, -, *, /): ")
+    if dzialanie == "+":
+        print("Wynik:", dodaj(a, b))
+    elif dzialanie == "-":
+        print("Wynik:", odejmij(a, b))
+    elif dzialanie == "*":
+        print("Wynik:", pomnoz(a, b))
+    elif dzialanie == "/":
+        print("Wynik:", podziel(a, b))
+    else:
+        print("Nieznane działanie")
+
+if __name__ == "__main__":
+    menu()
