@@ -1,3 +1,4 @@
+import math
 def dodaj(a, b):
     return a + b
 def odejmij(a, b):
@@ -10,12 +11,15 @@ def podziel(a, b):
     return a / b
 def potega(a, b):
     return a ** b
-
+def pierwiastek(a):
+    if a < 0:
+        raise ValueError("Nie można liczyć pierwiastka z liczby ujemnej")
+    return math.sqrt(a)
 def menu():
     print("=== Kalkulator ===")
     a = float(input("Podaj pierwszą liczbę: "))
     b = float(input("Podaj drugą liczbę: "))
-    dzialanie = input("Działanie (+, -, *, / ,^): ")
+    dzialanie = input("Działanie (+, -, *, / ,^ ,sqrt): ")
     if dzialanie == "+":
         print("Wynik:", dodaj(a, b))
     elif dzialanie == "-":
@@ -26,6 +30,8 @@ def menu():
         print("Wynik:", podziel(a, b))
     elif dzialanie == "^":
         print("Wynik:", potega(a, b))
+    elif dzialanie == "sqrt":
+        print("Wynik:", pierwiastek(a))
     else:
         print("Nieznane działanie")
 
