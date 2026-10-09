@@ -12,7 +12,7 @@ def potega(a, b):
     return a ** b
 
 def menu():
-    print("=== Kalkulator A ===")
+    print("=== Kalkulator B ===")
     a = float(input("Podaj pierwszą liczbę: "))
     b = float(input("Podaj drugą liczbę: "))
     dzialanie = input("Działanie (+, -, *, / ,^): ")
