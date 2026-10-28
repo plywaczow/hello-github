@@ -17,25 +17,35 @@ def pierwiastek(a):
     return math.sqrt(a)
 def menu():
     print("=== Kalkulator ===")
-    a = float(input("Podaj pierwszą liczbę: "))
-    b = float(input("Podaj drugą liczbę: "))
-    dzialanie = input("Działanie (+, -, *, / ,^ ,sqrt): ")
-    if dzialanie == "+":
-        print("Wynik:", dodaj(a, b))
-    elif dzialanie == "-":
-        print("Wynik:", odejmij(a, b))
-    elif dzialanie == "*":
-        print("Wynik:", pomnoz(a, b))
-    elif dzialanie == "/":
-        print("Wynik:", podziel(a, b))
-    elif dzialanie == "^":
-        print("Wynik:", potega(a, b))
-    elif dzialanie == "sqrt":
-        print("Wynik:", pierwiastek(a))
-    else:
-        print("Nieznane działanie")
+    while True:
+        dzialanie = input("\nDziałanie (+, -, *, /, ^, sqrt) lub 'q' aby wyjść: ").strip()
+        if dzialanie.lower() in ("q", "koniec"):
+            print("Koniec pracy kalkulatora.")
+            break
 
+        if dzialanie not in ("+", "-", "*", "/", "^", "sqrt"):
+            print("Nieznane działanie")
+            continue
+
+        try:
+            a = float(input("Podaj liczbę: " if dzialanie == "sqrt" else "Podaj pierwszą liczbę: "))
+            if dzialanie == "sqrt":
+                print("Wynik:", pierwiastek(a))
+            else:
+                b = float(input("Podaj drugą liczbę: "))
+                if dzialanie == "+":
+                    print("Wynik:", dodaj(a, b))
+                elif dzialanie == "-":
+                    print("Wynik:", odejmij(a, b))
+                elif dzialanie == "*":
+                    print("Wynik:", pomnoz(a, b))
+                elif dzialanie == "/":
+                    print("Wynik:", podziel(a, b))
+                elif dzialanie == "^":
+                    print("Wynik:", potega(a, b))
+        except ValueError as e:
+            print("Błąd:", e)
 
 
 if __name__ == "__main__":
-    menu() 
+    menu()
